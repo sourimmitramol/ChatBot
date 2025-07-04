@@ -1,4 +1,4 @@
-import azure.functions as func
+import azure.functions as func 
 import json
 from final_chatbot import query_chatbot
 
