@@ -1,8 +1,8 @@
 import azure.functions as func
-import time
+# import time
 import requests
 # from datetime import datetime, timezone
-# from openai import AzureOpenAI
+from openai import AzureOpenAI
 # import os
 import json
 # from typing import Optional, Union, Any, Dict
