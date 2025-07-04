@@ -1,22 +1,29 @@
 import azure.functions as func
 import json
+from final_chatbot import query_chatbot
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
     try:
-        name = req.params.get('name')
-        if not name:
-            req_body = req.get_json()
-            name = req_body.get('name')
+        req_body = req.get_json()
+        user_question = req_body.get('question')
+
+        if not user_question:
+            return func.HttpResponse(
+                json.dumps({"error": "Missing 'question' in request body."}),
+                status_code=400,
+                mimetype="application/json"
+            )
+
+        answer = query_chatbot(user_question)
 
         return func.HttpResponse(
-            json.dumps({"message": f"Hello, {name}!"}),
-            mimetype="application/json",
-            status_code=200
+            json.dumps({"question": user_question, "answer": answer}),
+            status_code=200,
+            mimetype="application/json"
         )
-
     except Exception as e:
         return func.HttpResponse(
             json.dumps({"error": str(e)}),
-            mimetype="application/json",
-            status_code=400
+            status_code=500,
+            mimetype="application/json"
         )
