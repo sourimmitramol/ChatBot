@@ -199,10 +199,17 @@ def query_chatbot(user_query: str) -> Union[str, Any]:
         latency = end_time - start_time
         print(f"Bot Responded Time: {end_time}")
         print(f"Time taken by bot: {latency:0.2f} sec")
-        log_interaction(user_query, bot_response, latency)
+        #log_interaction(user_query, bot_response, latency)
         return bot_response
 
     except Exception as err:
         print(f"System encountered an error: {err}")
         return None
     
+    
+# example use case
+if __name__ == "__main__":
+    while (user_query := input("\nUser: ")).lower() not in ["e", "q", "exit", "quit"]:
+        print("\nBot: ", end=" ")
+        bot_response = query_chatbot(user_query)
+        print(bot_response)
