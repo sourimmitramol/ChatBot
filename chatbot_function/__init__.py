@@ -1,6 +1,6 @@
 import azure.functions as func
-# import time
-# import requests
+import time
+import requests
 # from datetime import datetime, timezone
 # from openai import AzureOpenAI
 # import os
