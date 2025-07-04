@@ -1,12 +1,12 @@
 import azure.functions as func
-import time
-import requests
-from datetime import datetime, timezone
-from openai import AzureOpenAI
-import os
+# import time
+# import requests
+# from datetime import datetime, timezone
+# from openai import AzureOpenAI
+# import os
 import json
-from typing import Optional, Union, Any, Dict
-from final_chatbot import query_chatbot
+# from typing import Optional, Union, Any, Dict
+# from final_chatbot import query_chatbot
 
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
