@@ -1,12 +1,11 @@
 {
   "bindings": [
     {
-      "authLevel": "function",
+      "authLevel": "anonymous",
       "type": "httpTrigger",
       "direction": "in",
       "name": "req",
-      "methods": ["post","get"],
-      "route": "chat"
+      "methods": ["post","get"]
     },
     {
       "type": "http",
