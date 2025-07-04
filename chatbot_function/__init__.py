@@ -4,8 +4,12 @@ from final_chatbot import query_chatbot
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
     try:
-        req_body = req.get_json()
-        user_query = req_body.get("question")
+        #req_body = req.get_json()
+        #user_query = req_body.get("question")
+        user_query = req.params.get('question')
+        if not user_query:
+            req_body = req.get_json()
+            user_query = req_body.get('question')
 
         if not user_query:
             return func.HttpResponse("Missing 'question' in request body.", status_code=400)
